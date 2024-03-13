@@ -5,8 +5,8 @@ How to start ?
 
 1. Clone the repo.
 2. Ensure you have pnpm (8.14.1) and node(v20.11.1).
-3. cd into app1 and run pnpm run-app1
-4. cd into app2 and run pnpm run-app2
+3. cd into app1 and run pnpm run-app1 after pnpm install
+4. cd into app2 and run pnpm run-app2 after pnpm install
 5. This will spin up both the apps.
 
 6. App1 Serves the remote module on 5001 as configured:
