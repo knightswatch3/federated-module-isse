@@ -23,6 +23,9 @@ How to start ?
    b. I have a similar issue with another app (not in the repo currently ) which exposes a react component called <Auth/> which when I import and use in the index.tsx of app2 I run into
 
    ```
+      Error.tsx:45 Error: ScriptExternalLoadError: Loading script failed.
+      (missing: http://localhost:3002/remoteEntry2.js)
+      while loading "./src" from webpack/container/reference/authremote
       remote authremote/Auth 6 bytes (remote) 6 bytes (share-init) [built] [code generated]
       external "authremote@http://localhost:5002/remoteEntry2.js" 42 bytes [built] [code generated]
    ```
