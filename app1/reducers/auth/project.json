@@ -1,0 +1,7 @@
+{
+  "name": "auth_reducers",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/web-ui/reducers/auth/authentication",
+  "targets": {}
+}

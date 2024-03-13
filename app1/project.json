@@ -1,0 +1,73 @@
+{
+    "globalConfiguration": {
+      "packageManager": "pnpm"
+    },
+    "targets": {
+      "build-dev": {
+        "executor": "nx:run-commands",
+        "runner": "local",
+        "dependsOn": ["install-dependencies"],
+        "options": {
+          "cwd": "packages/web-ui",
+          "commands": [
+            "nx exec -- webpack --config webpack/client/webpack-dev.config.js"
+          ]
+        }
+      },
+      "start-dev": {
+        "executor": "nx:run-commands",
+        "runner": "local",
+        "dependsOn": ["install-dependencies"],
+        "options": {
+          "cwd": "packages/web-ui",
+          "commands": ["rm -rf dist && rollup -wc rollup/rollup.config-dev.mjs"]
+        }
+      },
+      "start-dev-standalone": {
+        "executor": "nx:run-commands",
+        "runner": "local",
+        "dependsOn": ["install-dependencies"],
+        "options": {
+          "cwd": "packages/web-ui",
+          "commands": [
+            "nx exec -- webpack-dev-server --config webpack/client/webpack-dev.config.js"
+          ]
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "dependsOn": ["install-dependencies"],
+        "options": {
+          "cwd": "packages/web-ui",
+          "commands": [
+            "webpack --config webpack/client/webpack-prod.config.js  && webpack --config webpack/server/webpack-prod.config.js && webpack --config webpack/server/webpack-prod.config.js"
+          ]
+        }
+      },
+      "start": {
+        "executor": "nx:run-commands",
+        "dependsOn": ["build"],
+        "options": {
+          "cwd": "packages/web-ui",
+          "commands": ["node dist/server/server-bundle.cjs"]
+        }
+      },
+      "install-dependencies": {
+        "executor": "nx:run-commands",
+        "options": {
+          "cwd": "packages/web-ui",
+          "commands": ["pnpm install"]
+        }
+      },
+      "start-mf": {
+        "executor": "nx:run-commands",
+        "runner": "local",
+        "dependsOn": ["install-dependencies"],
+        "options": {
+          "cwd": "packages/web-ui",
+          "commands": ["nx exec -- webpack-dev-server --config webpack/webpack.client.mjs"]
+        }
+      }
+    },
+    "name":"packages/web-ui"
+  }
