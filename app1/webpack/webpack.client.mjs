@@ -1,4 +1,3 @@
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import webpack from "webpack";
 import path from "path";
 const {ModuleFederationPlugin} = webpack.container;
@@ -95,12 +94,7 @@ const config = {
           eager: true,
         }
       },
-    }),
-    new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-      reportTitle: "auth bundle analysis",
-      openAnalyzer: false,
-    }),
+    })
   ],
 };
 
